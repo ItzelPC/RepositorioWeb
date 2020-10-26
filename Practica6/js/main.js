@@ -6,13 +6,43 @@ blogeo.addEventListener('click', function(){
     parametros.append('Prmemail', e);
     parametros.append('Prmpassword', p);
     alert(parametros);
-    axios.get('http://localhost/adios')
+    //axios.get('http://localhost:4567/hola?'+parametros)
+    //.then(function(response){
+    //   console.log(response)
+    //   console.log('Contenido: '+response.data)
+    //    console.log('Status: '+ response.status)
+    //    document.getElementById('titulo').innerHTML = response.data
+    //})
+
+    // axios.post('http://localhost:4567/adios?'+parametros)
+    // .then(function(response){
+    //    console.log(response)
+    //    console.log('Contenido: '+response.data)
+    //     console.log('Status: '+ response.status)
+    //     document.getElementById('titulo').innerHTML = response.data
+    // })
+
+    axios.post('http://localhost:4567/adiosJson', {
+        Prmemail: e,
+        Prmpassword: p
+    })
     .then(function(response){
-        console.log(response)
-        console.log('Contenido: '+response.data)
+       console.log(response)
+       console.log('Contenido: '+response.data)
         console.log('Status: '+ response.status)
         document.getElementById('titulo').innerHTML = response.data
     })
+
+    // axios.post('http://localhost:4567/adios?', {
+    //     Prmemail: e,
+    //     Prmpassword: p
+    // })
+    // .then(function(response){
+    //    console.log(response)
+    //    console.log('Contenido: '+response.data)
+    //     console.log('Status: '+ response.status)
+    //     document.getElementById('titulo').innerHTML = response.data
+    // })
     .catch(function(error){
         console.log(error)
     })
